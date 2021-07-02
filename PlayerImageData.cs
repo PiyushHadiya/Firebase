@@ -44,19 +44,23 @@ public class PlayerImageData : MonoBehaviour
     }
     private void Update()
     {
-        Second -= Time.deltaTime;
-        countDown.text = (Mathf.RoundToInt(Second)).ToString();
-
-        if (Second <= 0f && IsCountDownStart)
+    
+        if (IsCountDownStart)
         {
-            if (UnshowedImageList.Count > 0)
+            Second -= Time.deltaTime;
+            countDown.text = (Mathf.RoundToInt(Second)).ToString();
+
+            if (Second <= 0f)
             {
-                RandomImageShow();
-                Second = 10f;
-            }
-            else
-            {
-                OnStart();
+                if (UnshowedImageList.Count > 0)
+                {
+                    RandomImageShow();
+                    Second = 1f;
+                }
+                else
+                {
+                    OnStart();
+                }
             }
         }
     }
