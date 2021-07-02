@@ -72,7 +72,7 @@ public class PlayerImageData : MonoBehaviour
         firebaseStorage = FirebaseStorage.DefaultInstance;
 
         databaseReference = firebaseDatabase.RootReference;
-        databaseReference.Child($"Users/{PlayerId}/ImageShowen/PlayerName").SetValueAsync(PlayerId);
+        databaseReference.Child($"Users/{PlayerId}/PlayerName").SetValueAsync(PlayerId);
 
         new Thread(GetTotalImages).Start();
     }
