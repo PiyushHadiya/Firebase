@@ -78,7 +78,7 @@ public class PlayerImageData : MonoBehaviour
     private void GetTotalImages()
     {
         databaseReference = firebaseDatabase.RootReference.Child("Company/TotalImage");
-        databaseReference.GetValueAsync().ContinueWith((System.Action<Task<DataSnapshot>>)(task =>
+        databaseReference.GetValueAsync().ContinueWith((task =>
         {
             if (task.IsCompleted)
             {
