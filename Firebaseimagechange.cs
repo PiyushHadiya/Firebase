@@ -26,7 +26,7 @@ public class Firebaseimagechange : MonoBehaviour
         
         firebaseStorage = FirebaseStorage.DefaultInstance;
     }
-    public void GettingUrlToRealtimeDatabase(string imageID)
+    public void GettingUrlToRealtimeDatabase(string imageID) 
     {
         string randomImageSelect = UnityEngine.Random.Range(1, 10).ToString(); // Generate 1-10 Random Image Name
 
