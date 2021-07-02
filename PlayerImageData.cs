@@ -9,7 +9,7 @@ using System.Threading;
 using System;
 using UnityEngine.UI;
 
-public class PlayerImageData : Player
+public class PlayerImageData : MonoBehaviour
 {
     public static Action<string> FireBaseImageShow;
 
@@ -18,7 +18,8 @@ public class PlayerImageData : Player
     private DatabaseReference databaseReference;
 
     public Text countDown;
-
+    
+    public string PlayerId;
     private float Second = 10;
     private int ImageCount;
     private bool IsCountDownStart = false;
@@ -28,7 +29,18 @@ public class PlayerImageData : Player
 
     private void Awake()
     {
+        PlayerName();
         OnStart();
+    }
+    private void PlayerName()
+    {
+        PlayerId = PlayerPrefs.GetString("localPlayerId", "");
+
+        if (PlayerId.Length <= 0)
+        {
+            PlayerId = "Geust" + UnityEngine.Random.Range(2020, 4040);
+            PlayerPrefs.SetString("localPlayerId", PlayerId);
+        }
     }
     private void Update()
     {
