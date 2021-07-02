@@ -64,6 +64,7 @@ public class PlayerImageData : MonoBehaviour
 
     private void OnStart()
     {
+        ShowedImageList.Clear();
         IsCountDownStart = false; 
         Second = 10f;
 
